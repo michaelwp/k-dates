@@ -70,4 +70,68 @@ describe("k-date function", function () {
         var toDayId = halfDayId + ", " + date.getDate() + "-" + month + "-" + date.getFullYear();
         assert_1.strict.equal(index_1["default"].today("DDD, DD-MM-YYYY", "id"), toDayId);
     });
+    it("should return Error Bad date Format in spesific languange", function () {
+        // english
+        assert_1.strict.equal(index_1["default"].today("XXX, DD-MM-YYYY"), "Bad date Format. Ex: 'YYYY-MM-DD' or 'MM-DD-YYYY' or 'DD-MM-YYYY'");
+        // indonesian
+        assert_1.strict.equal(index_1["default"].today("XXX, DD-MM-YYYY", "id"), "Format tanggal salah. Mis: 'YYYY-MM-DD' atau 'MM-DD-YYYY' atau 'DD-MM-YYYY'");
+    });
+    it("should return full month name", function () {
+        // English
+        assert_1.strict.equal(index_1["default"].fullMonth(1), "January");
+        assert_1.strict.equal(index_1["default"].fullMonth(2), "February");
+        assert_1.strict.equal(index_1["default"].fullMonth(3), "March");
+        assert_1.strict.equal(index_1["default"].fullMonth(4), "April");
+        assert_1.strict.equal(index_1["default"].fullMonth(5), "May");
+        assert_1.strict.equal(index_1["default"].fullMonth(6), "June");
+        assert_1.strict.equal(index_1["default"].fullMonth(7), "July");
+        assert_1.strict.equal(index_1["default"].fullMonth(8), "August");
+        assert_1.strict.equal(index_1["default"].fullMonth(9), "September");
+        assert_1.strict.equal(index_1["default"].fullMonth(10), "October");
+        assert_1.strict.equal(index_1["default"].fullMonth(11), "November");
+        assert_1.strict.equal(index_1["default"].fullMonth(12), "December");
+        // Indonesian
+        assert_1.strict.equal(index_1["default"].fullMonth(1, "id"), "Januari");
+        assert_1.strict.equal(index_1["default"].fullMonth(2, "id"), "Februari");
+        assert_1.strict.equal(index_1["default"].fullMonth(3, "id"), "Maret");
+        assert_1.strict.equal(index_1["default"].fullMonth(4, "id"), "April");
+        assert_1.strict.equal(index_1["default"].fullMonth(5, "id"), "Mei");
+        assert_1.strict.equal(index_1["default"].fullMonth(6, "id"), "Juni");
+        assert_1.strict.equal(index_1["default"].fullMonth(7, "id"), "Juli");
+        assert_1.strict.equal(index_1["default"].fullMonth(8, "id"), "Agustus");
+        assert_1.strict.equal(index_1["default"].fullMonth(9, "id"), "September");
+        assert_1.strict.equal(index_1["default"].fullMonth(10, "id"), "Oktober");
+        assert_1.strict.equal(index_1["default"].fullMonth(11, "id"), "November");
+        assert_1.strict.equal(index_1["default"].fullMonth(12, "id"), "Desember");
+    });
+    it("should return wrong month number in spesific languange", function () {
+        // english
+        assert_1.strict.equal(index_1["default"].fullMonth(13), "wrong month number, it must be 1 - 12");
+        // indonesian
+        assert_1.strict.equal(index_1["default"].fullMonth(13, "id"), "nomor bulan salah, harus 1 - 12");
+    });
+    it("should return full day name", function () {
+        // English
+        assert_1.strict.equal(index_1["default"].fullDay(1), "Monday");
+        assert_1.strict.equal(index_1["default"].fullDay(2), "Thursday");
+        assert_1.strict.equal(index_1["default"].fullDay(3), "Wednesday");
+        assert_1.strict.equal(index_1["default"].fullDay(4), "Tuesday");
+        assert_1.strict.equal(index_1["default"].fullDay(5), "Friday");
+        assert_1.strict.equal(index_1["default"].fullDay(6), "Saturday");
+        assert_1.strict.equal(index_1["default"].fullDay(7), "Sunday");
+        // Indonesian
+        assert_1.strict.equal(index_1["default"].fullDay(1, "id"), "Senin");
+        assert_1.strict.equal(index_1["default"].fullDay(2, "id"), "Selasa");
+        assert_1.strict.equal(index_1["default"].fullDay(3, "id"), "Rabu");
+        assert_1.strict.equal(index_1["default"].fullDay(4, "id"), "Kamis");
+        assert_1.strict.equal(index_1["default"].fullDay(5, "id"), "Jumat");
+        assert_1.strict.equal(index_1["default"].fullDay(6, "id"), "Sabtu");
+        assert_1.strict.equal(index_1["default"].fullDay(7, "id"), "Minggu");
+    });
+    it("should return wrong day number in spesific languange", function () {
+        // english
+        assert_1.strict.equal(index_1["default"].fullDay(13), "wrong day number, it must be 1 - 7");
+        // indonesian
+        assert_1.strict.equal(index_1["default"].fullDay(13, "id"), "nomor hari salah, harus 1 - 7");
+    });
 });

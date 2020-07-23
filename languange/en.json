@@ -17,5 +17,8 @@
   "tuesday": "Tuesday",
   "friday": "Friday",
   "saturday": "Saturday",
-  "sunday": "Sunday"
+  "sunday": "Sunday",
+  "wrong day number": "wrong day number, it must be 1 - 7",
+  "wrong month number": "wrong month number, it must be 1 - 12",
+  "bad date format": "Bad date Format. Ex: 'YYYY-MM-DD' or 'MM-DD-YYYY' or 'DD-MM-YYYY'"
 }

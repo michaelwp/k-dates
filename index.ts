@@ -11,6 +11,7 @@ const { default: localizify } = require("localizify");
 const en = require("./languange/en.json");
 const id = require("./languange/id.json");
 const localLang = localizify.add("en", en).add("id", id);
+const { t } = require("localizify");
 
 export default class kDate {
   // get today date function
@@ -32,7 +33,7 @@ export default class kDate {
     const fullMonthName = this.fullMonth(monthNumber, lang);
     const halfMonthName = fullMonthName.substr(0, 3);
 
-    //year
+    // get full year
     const year = date.getFullYear();
 
     // read and return date by the format request
@@ -52,10 +53,7 @@ export default class kDate {
       case "DDD, DD-MM-YYYY":
         return `${halfDayName}, ${dateNumber}-${monthNumber}-${year}`;
       default:
-        return (
-          "Bad date Format. \n " +
-          "Ex: 'YYYY-MM-DD' or 'MM-DD-YYYY' or 'DD-MM-YYYY'"
-        );
+        return t("bad date format");
     }
   }
 
@@ -63,8 +61,6 @@ export default class kDate {
   static fullMonth(monthNumber: number, lang: string = "en"): string {
     // set local languange
     localLang.setLocale(lang);
-
-    const { t } = require("localizify");
 
     // return the full month by the languange and month number request
     switch (true) {
@@ -93,7 +89,7 @@ export default class kDate {
       case monthNumber === 12:
         return t("december");
       default:
-        return "wrong month number it must be 1 - 12";
+        return t("wrong month number");
     }
   }
 
@@ -113,13 +109,15 @@ export default class kDate {
       case dayNumber === 3:
         return t("wednesday");
       case dayNumber === 4:
-        return t("friday");
+        return t("tuesday");
       case dayNumber === 5:
+        return t("friday");
+      case dayNumber === 6:
         return t("saturday");
       case dayNumber === 7:
         return t("sunday");
       default:
-        return "wrong day number it must be 1 - 7";
+        return t("wrong day number");
     }
   }
 }

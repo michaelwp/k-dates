@@ -95,4 +95,84 @@ describe("k-date function", function () {
     const toDayId = `${halfDayId}, ${date.getDate()}-${month}-${date.getFullYear()}`;
     assert.equal(kDate.today("DDD, DD-MM-YYYY", "id"), toDayId);
   });
+
+  it("should return Error Bad date Format in spesific languange", function () {
+    // english
+    assert.equal(
+      kDate.today("XXX, DD-MM-YYYY"),
+      "Bad date Format. Ex: 'YYYY-MM-DD' or 'MM-DD-YYYY' or 'DD-MM-YYYY'"
+    );
+
+    // indonesian
+    assert.equal(
+      kDate.today("XXX, DD-MM-YYYY", "id"),
+      "Format tanggal salah. Mis: 'YYYY-MM-DD' atau 'MM-DD-YYYY' atau 'DD-MM-YYYY'"
+    );
+  });
+
+  it("should return full month name", function () {
+    // English
+    assert.equal(kDate.fullMonth(1), "January");
+    assert.equal(kDate.fullMonth(2), "February");
+    assert.equal(kDate.fullMonth(3), "March");
+    assert.equal(kDate.fullMonth(4), "April");
+    assert.equal(kDate.fullMonth(5), "May");
+    assert.equal(kDate.fullMonth(6), "June");
+    assert.equal(kDate.fullMonth(7), "July");
+    assert.equal(kDate.fullMonth(8), "August");
+    assert.equal(kDate.fullMonth(9), "September");
+    assert.equal(kDate.fullMonth(10), "October");
+    assert.equal(kDate.fullMonth(11), "November");
+    assert.equal(kDate.fullMonth(12), "December");
+
+    // Indonesian
+    assert.equal(kDate.fullMonth(1, "id"), "Januari");
+    assert.equal(kDate.fullMonth(2, "id"), "Februari");
+    assert.equal(kDate.fullMonth(3, "id"), "Maret");
+    assert.equal(kDate.fullMonth(4, "id"), "April");
+    assert.equal(kDate.fullMonth(5, "id"), "Mei");
+    assert.equal(kDate.fullMonth(6, "id"), "Juni");
+    assert.equal(kDate.fullMonth(7, "id"), "Juli");
+    assert.equal(kDate.fullMonth(8, "id"), "Agustus");
+    assert.equal(kDate.fullMonth(9, "id"), "September");
+    assert.equal(kDate.fullMonth(10, "id"), "Oktober");
+    assert.equal(kDate.fullMonth(11, "id"), "November");
+    assert.equal(kDate.fullMonth(12, "id"), "Desember");
+  });
+
+  it("should return wrong month number in spesific languange", function () {
+    // english
+    assert.equal(kDate.fullMonth(13), "wrong month number, it must be 1 - 12");
+
+    // indonesian
+    assert.equal(kDate.fullMonth(13, "id"), "nomor bulan salah, harus 1 - 12");
+  });
+
+  it("should return full day name", function () {
+    // English
+    assert.equal(kDate.fullDay(1), "Monday");
+    assert.equal(kDate.fullDay(2), "Thursday");
+    assert.equal(kDate.fullDay(3), "Wednesday");
+    assert.equal(kDate.fullDay(4), "Tuesday");
+    assert.equal(kDate.fullDay(5), "Friday");
+    assert.equal(kDate.fullDay(6), "Saturday");
+    assert.equal(kDate.fullDay(7), "Sunday");
+
+    // Indonesian
+    assert.equal(kDate.fullDay(1, "id"), "Senin");
+    assert.equal(kDate.fullDay(2, "id"), "Selasa");
+    assert.equal(kDate.fullDay(3, "id"), "Rabu");
+    assert.equal(kDate.fullDay(4, "id"), "Kamis");
+    assert.equal(kDate.fullDay(5, "id"), "Jumat");
+    assert.equal(kDate.fullDay(6, "id"), "Sabtu");
+    assert.equal(kDate.fullDay(7, "id"), "Minggu");
+  });
+
+  it("should return wrong day number in spesific languange", function () {
+    // english
+    assert.equal(kDate.fullDay(13), "wrong day number, it must be 1 - 7");
+
+    // indonesian
+    assert.equal(kDate.fullDay(13, "id"), "nomor hari salah, harus 1 - 7");
+  });
 });

@@ -12,6 +12,7 @@ var localizify = require("localizify")["default"];
 var en = require("./languange/en.json");
 var id = require("./languange/id.json");
 var localLang = localizify.add("en", en).add("id", id);
+var t = require("localizify").t;
 var kDate = /** @class */ (function () {
     function kDate() {
     }
@@ -32,7 +33,7 @@ var kDate = /** @class */ (function () {
         var monthNumber = date.getMonth() + 1;
         var fullMonthName = this.fullMonth(monthNumber, lang);
         var halfMonthName = fullMonthName.substr(0, 3);
-        //year
+        // get full year
         var year = date.getFullYear();
         // read and return date by the format request
         switch (format) {
@@ -51,8 +52,7 @@ var kDate = /** @class */ (function () {
             case "DDD, DD-MM-YYYY":
                 return halfDayName + ", " + dateNumber + "-" + monthNumber + "-" + year;
             default:
-                return ("Bad date Format. \n " +
-                    "Ex: 'YYYY-MM-DD' or 'MM-DD-YYYY' or 'DD-MM-YYYY'");
+                return t("bad date format");
         }
     };
     // get the full month
@@ -60,7 +60,6 @@ var kDate = /** @class */ (function () {
         if (lang === void 0) { lang = "en"; }
         // set local languange
         localLang.setLocale(lang);
-        var t = require("localizify").t;
         // return the full month by the languange and month number request
         switch (true) {
             case monthNumber === 1:
@@ -88,7 +87,7 @@ var kDate = /** @class */ (function () {
             case monthNumber === 12:
                 return t("december");
             default:
-                return "wrong month number it must be 1 - 12";
+                return t("wrong month number");
         }
     };
     // get the full day
@@ -106,13 +105,15 @@ var kDate = /** @class */ (function () {
             case dayNumber === 3:
                 return t("wednesday");
             case dayNumber === 4:
-                return t("friday");
+                return t("tuesday");
             case dayNumber === 5:
+                return t("friday");
+            case dayNumber === 6:
                 return t("saturday");
             case dayNumber === 7:
                 return t("sunday");
             default:
-                return "wrong day number it must be 1 - 7";
+                return t("wrong day number");
         }
     };
     return kDate;
