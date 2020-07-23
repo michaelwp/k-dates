@@ -9,6 +9,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "pre-push": [
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michaelwp/k-date.git"
@@ -22,7 +25,14 @@
   "homepage": "https://github.com/michaelwp/k-date#readme",
   "devDependencies": {
     "@types/mocha": "^8.0.0",
-    "mocha": "^8.0.1"
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^8.0.1",
+    "pre-push": "^0.1.1",
+    "prettier": "^2.0.5"
   },
   "dependencies": {
     "@types/node": "^14.0.24",

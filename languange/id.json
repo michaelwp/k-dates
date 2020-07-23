@@ -10,5 +10,12 @@
   "september": "September",
   "october": "Oktober",
   "november": "November",
-  "december": "Desember"
+  "december": "Desember",
+  "monday": "Senin",
+  "thursday": "Selasa",
+  "wednesday": "Rabu",
+  "tuesday": "Kamis",
+  "friday": "Jumat",
+  "saturday": "Sabtu",
+  "sunday": "Minggu"
 }

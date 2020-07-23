@@ -10,5 +10,12 @@
   "september": "September",
   "october": "October",
   "november": "November",
-  "december": "December"
+  "december": "December",
+  "monday": "Monday",
+  "thursday": "Thursday",
+  "wednesday": "Wednesday",
+  "tuesday": "Tuesday",
+  "friday": "Friday",
+  "saturday": "Saturday",
+  "sunday": "Sunday"
 }
