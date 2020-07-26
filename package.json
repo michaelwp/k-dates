@@ -38,5 +38,8 @@
   "dependencies": {
     "@types/node": "^14.0.24",
     "localizify": "^2.0.0"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/@michaelwp"
   }
 }
