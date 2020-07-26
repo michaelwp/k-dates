@@ -17,7 +17,7 @@ console.log(kDate.today("YYYY-MM-DD"));
 return current full month name with format "DD-MMMM-YYYY in spesific languange'
 ```javascript
 // <english (default)>
-console.log(kDate.today("DD-MMMM-YYYY"));
+console.log(kDate.today("DD-MMMM-YYYY")); 
 
 // <indonesian>
 console.log(kDate.today("DD-MMMM-YYYY","id"));
@@ -37,7 +37,7 @@ return full month name only
 console.log(kDate.fullMonth(1)); // Will return 'January'
 
 // <indonesia>
-console.log(kDate.fullMonth(1)); // Will return 'Januari'
+console.log(kDate.fullMonth(1),"id"); // Will return 'Januari'
 
 ```
 
