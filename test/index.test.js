@@ -32,7 +32,7 @@ describe("k-date function", function () {
         var date = new Date();
         var month = date.getMonth() + 1;
         // English
-        var fullMonthEn = index_1["default"].fullMonth(month, "en");
+        var fullMonthEn = index_1["default"].fullMonth(month);
         var halfMonthEn = fullMonthEn.substr(0, 3);
         var toDayEn = date.getDate() + "-" + halfMonthEn + "-" + date.getFullYear();
         assert_1.strict.equal(index_1["default"].today("DD-MMM-YYYY"), toDayEn);
@@ -133,5 +133,73 @@ describe("k-date function", function () {
         assert_1.strict.equal(index_1["default"].fullDay(13), "wrong day number, it must be 1 - 7");
         // indonesian
         assert_1.strict.equal(index_1["default"].fullDay(13, "id"), "nomor hari salah, harus 1 - 7");
+    });
+    it('should return current date with format "DDD, DD-MMM-YYYY in spesific languange', function () {
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        var day = date.getDay();
+        // English
+        var fullMonthEn = index_1["default"].fullMonth(month);
+        var halfMonthEn = fullMonthEn.substr(0, 3);
+        var fullDayEn = index_1["default"].fullDay(day);
+        var halfDayEn = fullDayEn.substr(0, 3);
+        var toDayEn = halfDayEn + ", " + date.getDate() + "-" + halfMonthEn + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDD, DD-MMM-YYYY"), toDayEn);
+        // Indonesian
+        var fullMonthId = index_1["default"].fullMonth(month, "id");
+        var halfMonthId = fullMonthId.substr(0, 3);
+        var fullDayId = index_1["default"].fullDay(day, "id");
+        var halfDayId = fullDayId.substr(0, 3);
+        var toDayId = halfDayId + ", " + date.getDate() + "-" + halfMonthId + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDD, DD-MMM-YYYY", "id"), toDayId);
+    });
+    it('should return current date with format "DDD, DD-MMMM-YYYY in spesific languange', function () {
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        var day = date.getDay();
+        // English
+        var fullMonthEn = index_1["default"].fullMonth(month);
+        var fullDayEn = index_1["default"].fullDay(day);
+        var halfDayEn = fullDayEn.substr(0, 3);
+        var toDayEn = halfDayEn + ", " + date.getDate() + "-" + fullMonthEn + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDD, DD-MMMM-YYYY"), toDayEn);
+        // Indonesian
+        var fullMonthId = index_1["default"].fullMonth(month, "id");
+        var fullDayId = index_1["default"].fullDay(day, "id");
+        var halfDayId = fullDayId.substr(0, 3);
+        var toDayId = halfDayId + ", " + date.getDate() + "-" + fullMonthId + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDD, DD-MMMM-YYYY", "id"), toDayId);
+    });
+    it('should return current date with format "DDDD, DD-MMM-YYYY in spesific languange', function () {
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        var day = date.getDay();
+        // English
+        var fullMonthEn = index_1["default"].fullMonth(month);
+        var halfMonthEn = fullMonthEn.substr(0, 3);
+        var fullDayEn = index_1["default"].fullDay(day);
+        var toDayEn = fullDayEn + ", " + date.getDate() + "-" + halfMonthEn + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDDD, DD-MMM-YYYY"), toDayEn);
+        // Indonesian
+        var fullMonthId = index_1["default"].fullMonth(month, "id");
+        var halfMonthId = fullMonthId.substr(0, 3);
+        var fullDayId = index_1["default"].fullDay(day, "id");
+        var toDayId = fullDayId + ", " + date.getDate() + "-" + halfMonthId + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDDD, DD-MMM-YYYY", "id"), toDayId);
+    });
+    it('should return current date with format "DDDD, DD-MMMM-YYYY in spesific languange', function () {
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        var day = date.getDay();
+        // English
+        var fullMonthEn = index_1["default"].fullMonth(month);
+        var fullDayEn = index_1["default"].fullDay(day);
+        var toDayEn = fullDayEn + ", " + date.getDate() + "-" + fullMonthEn + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDDD, DD-MMMM-YYYY"), toDayEn);
+        // Indonesian
+        var fullMonthId = index_1["default"].fullMonth(month, "id");
+        var fullDayId = index_1["default"].fullDay(day, "id");
+        var toDayId = fullDayId + ", " + date.getDate() + "-" + fullMonthId + "-" + date.getFullYear();
+        assert_1.strict.equal(index_1["default"].today("DDDD, DD-MMMM-YYYY", "id"), toDayId);
     });
 });
