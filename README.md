@@ -1,4 +1,4 @@
-# k-date
+# k-dates
 npm package for formatting date and time, support multi languange (indonesian & english)
 
 ## Supported languange
@@ -8,7 +8,7 @@ npm package for formatting date and time, support multi languange (indonesian & 
 ## How To Use
 Import the function
 ```javascript
-const kDate = require('k-date');
+const kDate = require('k-dates');
 ```
 return current date with format "YYYY-MM-DD"
 ```javascript
