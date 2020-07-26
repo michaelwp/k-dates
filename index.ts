@@ -2,7 +2,7 @@
  * k-date
  * Created by Michael Putong
  * Created : 22 July 2020
- * Last Update : 23 July 2020
+ * Last Update : 24 July 2020
  * Version History : 1.0.0
  */
 
@@ -40,18 +40,26 @@ export default class kDate {
     switch (format) {
       case "YYYY-MM-DD":
         return `${year}-${monthNumber}-${dateNumber}`;
-      case "DD-MMMM-YYYY":
-        return `${dateNumber}-${fullMonthName}-${year}`;
-      case "DD-MMM-YYYY":
-        return `${dateNumber}-${halfMonthName}-${year}`;
-      case "MM-DD-YYYY":
-        return `${monthNumber}-${dateNumber}-${year}`;
       case "DD-MM-YYYY":
         return `${dateNumber}-${monthNumber}-${year}`;
-      case "DDDD, DD-MM-YYYY":
-        return `${fullDayName}, ${dateNumber}-${monthNumber}-${year}`;
+      case "DD-MMM-YYYY":
+        return `${dateNumber}-${halfMonthName}-${year}`;
+      case "DD-MMMM-YYYY":
+        return `${dateNumber}-${fullMonthName}-${year}`;
+      case "MM-DD-YYYY":
+        return `${monthNumber}-${dateNumber}-${year}`;
       case "DDD, DD-MM-YYYY":
         return `${halfDayName}, ${dateNumber}-${monthNumber}-${year}`;
+      case "DDDD, DD-MM-YYYY":
+        return `${fullDayName}, ${dateNumber}-${monthNumber}-${year}`;
+      case "DDD, DD-MMM-YYYY":
+        return `${halfDayName}, ${dateNumber}-${halfMonthName}-${year}`;
+      case "DDD, DD-MMMM-YYYY":
+        return `${halfDayName}, ${dateNumber}-${fullMonthName}-${year}`;
+      case "DDDD, DD-MMM-YYYY":
+        return `${fullDayName}, ${dateNumber}-${halfMonthName}-${year}`;
+      case "DDDD, DD-MMMM-YYYY":
+        return `${fullDayName}, ${dateNumber}-${fullMonthName}-${year}`;
       default:
         return t("bad date format");
     }
