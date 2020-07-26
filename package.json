@@ -1,6 +1,6 @@
 {
-  "name": "k-date",
-  "version": "1.0.0",
+  "name": "k-dates",
+  "version": "1.0.1",
   "description": "npm package for formatting date and time",
   "main": "index.ts",
   "directories": {
@@ -20,9 +20,9 @@
   "author": "Michael Putong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/michaelwp/k-date/issues"
+    "url": "https://github.com/michaelwp/k-dates/issues"
   },
-  "homepage": "https://github.com/michaelwp/k-date#readme",
+  "homepage": "https://github.com/michaelwp/k-dates#readme",
   "devDependencies": {
     "@types/mocha": "^8.0.0",
     "eslint": "^7.2.0",
